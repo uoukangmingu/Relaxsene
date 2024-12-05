@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, orientation=portrait">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Relaxsene</title>
     <style>
         body {
@@ -15,29 +15,7 @@
             height: 100vh;
             overflow: hidden;
         }
-    @media screen and (orientation: landscape) {
-        body {
-            transform: rotate(90deg);
-            transform-origin: center;
-            height: 100vw;
-            width: 100vh;
-            overflow: hidden;
-        }
 
-        .rotate-message {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            color: white;
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 20px;
-            border-radius: 15px;
-            font-size: 1.2em;
-            z-index: 1000;
-        }
-    }
         .card-container {
             perspective: 1000px;
             width: 90%;
@@ -236,9 +214,6 @@
     </style>
 </head>
 <body>
-  <div class="rotate-message" id="rotateMessage" style="display: none;">
-    세로 화면으로 전환해주세요.
-</div>
     <div class="card-container">
         <div class="card" id="card">
             <div class="card-face card-front"></div>
@@ -488,20 +463,6 @@
             document.getElementById("popup").style.display = "none";
             document.getElementById("overlay").style.display = "none";
         }
-    // 화면 방향 감지
-    function checkOrientation() {
-        const rotateMessage = document.getElementById('rotateMessage');
-        if (window.innerHeight < window.innerWidth) {
-            rotateMessage.style.display = 'block'; // 가로 화면일 때 메시지 표시
-        } else {
-            rotateMessage.style.display = 'none'; // 세로 화면일 때 메시지 숨김
-        }
-    }
-
-    // 이벤트 리스너 추가
-    window.addEventListener('resize', checkOrientation);
-    window.addEventListener('orientationchange', checkOrientation);
-    checkOrientation(); // 초기 실행
     </script>
 </body>
 </html>
