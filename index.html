@@ -268,6 +268,7 @@
         card.addEventListener("click", () => {
             card.classList.toggle("is-flipped");
         });
+
         // 팝업 메시지 표시
         const comfortingMessages = [
     "오늘 진짜 고생했어. 잘 할거야.",
@@ -472,8 +473,7 @@
     "넌 이미 충분히 멋진 사람이야.",
     "힘든 시간도 결국엔 네게 큰 힘이 될 거야.",
     "네가 얼마나 대단한 사람인지 잊지 마.",
-    "오늘도 수고했어. 정말 잘했어."
-];
+    "오늘도 수고했어. 정말 잘했어."];
 
         function getRandomMessage() {
             const randomIndex = Math.floor(Math.random() * comfortingMessages.length);
