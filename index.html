@@ -24,6 +24,17 @@
         height: auto;
         outline: none; /* 포커스 박스 제거 */
         -webkit-tap-highlight-color: transparent; /* 터치 시 강조 색 제거 */
+        position: relative;
+        animation: float 3s ease-in-out infinite;
+    }
+    /* 둥둥 떠 있는 효과 */
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
     }
 
     .card {
@@ -68,6 +79,29 @@
         padding: 15px;
         box-sizing: border-box;
     }
+    /* CLICK 텍스트 */
+    .click-text {
+        position: absolute;
+        top: -30%;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 1.5em;
+        font-weight: bold;
+        color: rgba(255, 255, 255, 0.8);
+        text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        z-index: 10; /* 카드 위로 표시 */
+        animation: fadeInOut 2s infinite;
+    }
+
+    /* CLICK 텍스트 깜빡이는 효과 */
+    @keyframes fadeInOut {
+        0%, 100% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0.5;
+        }
+    }
         iframe {
             width: 100%;
             max-width: 280px;
@@ -107,6 +141,7 @@
         }
 
         .button {
+            font-weight: bold;
             margin-top: 15px;
             padding: 10px 20px;
             font-size: 1em;
@@ -227,6 +262,7 @@
 </head>
 <body>
     <div class="card-container">
+        <div class="click-text">CLICK</div>
         <div class="card" id="card">
             <div class="card-face card-front"></div>
             <div class="card-face card-back">
@@ -234,7 +270,7 @@
                 <iframe src="https://www.youtube.com/embed/veHwdwi_DSo?si=rJl7M2MbuoqBzCP0" allowfullscreen></iframe>
                 <h1></h1>
                 <p><strong>"Relaxsene"</strong><br><strong>The best choice for you, dominated by tension</strong></p>
-                <button class="button" onclick="showPopup()">응원의 메시지 받기</button>
+                <button class="button" onclick="showPopup()">'위로'의 메시지 받기</button>
             </div>
         </div>
     </div>
